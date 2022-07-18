@@ -1,19 +1,18 @@
 ﻿Console.Write("Enter the number: ");
-int num = int.Parse(Console.ReadLine()); // we are taking the input from user of which we have to check if prime or not
-int ans,count = 0;
-for(int i = 2; i <= num/2; i++)
+int num = int.Parse(Console.ReadLine()); // From user we are taking a value and checking for that value if palindrome or not
+int originalNum = num; // we are storing the num value in originalnum so we can compare it afterwards
+int palin = 0, ans;
+while(num > 0) //in this loop when the number is greater the 0 then it will go inside the loop
 {
-    ans = num % i; // remainder is calculated 
-    if(ans == 0) // check whether remainder is 0 or not if yes then increament the count value else conditnue the loop
-    {
-        count++;
-    }
+    ans = num % 10; // In this, remainder is calculated
+    palin = palin * 10 + ans; //from this formula we will get one by one value from end and store in palin
+    num /= 10; //in this, quotient is calculated
 }
-if(count == 0) // if count value is 0 then the number is a prime number
+if(originalNum == palin) // if originalNum and palin value is same then it will print number is palindrome
 {
-    Console.WriteLine(num+ " is a Prime Number");
+    Console.WriteLine("Number is Palindrome");
 }
 else
 {
-    Console.WriteLine(num + " is not a Prime Number");
+    Console.WriteLine("Number is not Palindrome");
 }
